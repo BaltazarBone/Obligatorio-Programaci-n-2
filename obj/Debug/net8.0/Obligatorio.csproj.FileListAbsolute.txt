@@ -1,0 +1,14 @@
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\bin\Debug\net8.0\Obligatorio.exe
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\bin\Debug\net8.0\Obligatorio.deps.json
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\bin\Debug\net8.0\Obligatorio.runtimeconfig.json
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\bin\Debug\net8.0\Obligatorio.dll
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\bin\Debug\net8.0\Obligatorio.pdb
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.AssemblyInfoInputs.cache
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.AssemblyInfo.cs
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.csproj.CoreCompileInputs.cache
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.dll
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\refint\Obligatorio.dll
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.pdb
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.genruntimeconfig.cache
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\ref\Obligatorio.dll
