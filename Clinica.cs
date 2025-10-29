@@ -9,11 +9,11 @@ namespace Obligatorio
 {
     public class Clinica
     {
-        private List<Paciente> pacientes = new List<Paciente>();
-        private List<Medico> medicos = new List<Medico>();
-        private List<Administrativo> administrativos = new List<Administrativo>();
-        private List<Consulta> consultas = new List<Consulta>();
-        private List<Pago> pagos = new List<Pago>();
+        public List<Paciente> pacientes = new List<Paciente>();
+        public List<Medico> medicos = new List<Medico>();
+        public List<Administrativo> administrativos = new List<Administrativo>();
+        public List<Consulta> consultas = new List<Consulta>();
+        public List<Pago> pagos = new List<Pago>();
 
         //          ----- PACIENTES -----
         public void AgregarPaciente(Paciente nuevoPaciente)
@@ -105,16 +105,18 @@ namespace Obligatorio
         }
 
         //          ----- PAGOS -----
-        public void RegistrarPago(int idConsulta, decimal monto, MetodoPago metodo)
+        public void RegistrarPago(int idConsulta, decimal monto, MetodoPago metodo, bool emitirComprobante = true)
         {
             Consulta consultaSeleccionada = consultas.FirstOrDefault(c => c.ID == idConsulta);
             if (consultaSeleccionada == null) throw new ArgumentException("No se encontró la consulta.");
-            if (consultaSeleccionada.Estado != EstadoConsulta.Agendada && consultaSeleccionada.Estado != EstadoConsulta.Realizada) throw new InvalidOperationException("Solo se puede pagar una consulta agendada o realizada.");
+            if (consultaSeleccionada.Estado != EstadoConsulta.Agendada && consultaSeleccionada.Estado != EstadoConsulta.Realizada)
+                throw new InvalidOperationException("Solo se puede pagar una consulta agendada o realizada.");
 
             Pago nuevoPago = new Pago(idConsulta, monto, metodo, DateTime.Now);
             pagos.Add(nuevoPago);
 
-            EmitirComprobante(nuevoPago.ID);
+            if (emitirComprobante) // Solo imprime si el usuario lo pidió
+                EmitirComprobante(nuevoPago.ID);
         }
 
         public void EmitirComprobante(int idPago)
@@ -163,16 +165,34 @@ namespace Obligatorio
         // Ranking de medicos mas consultados //
         public List<(Medico Medico, int Cantidad)> ObtenerMedicosMasConsultados()
         {
-            var consultasRealizadas = consultas.Where(consulta => consulta.Estado == EstadoConsulta.Realizada);
+            var consultasRealizadas = consultas.Where(c => c.Estado == EstadoConsulta.Realizada);
 
-            var rankingPorMedico = consultasRealizadas.GroupBy(consulta => consulta.IdMedico).Select(grupo =>
+            var rankingPorMedico = consultasRealizadas.GroupBy(c => c.IdMedico).Select(grupo =>
                 {
-                    var medicoAsociado = medicos.FirstOrDefault(medico => medico.ID == grupo.Key);
-                    return (Medico: medicoAsociado, Cantidad: grupo.Count());
-                }).OrderByDescending(resultado => resultado.Cantidad).ToList();
+                    var medicoAsociado = medicos.FirstOrDefault(m => m.ID == grupo.Key);
+                    return medicoAsociado != null ? (Medico: medicoAsociado, Cantidad: grupo.Count()) : default;
+                }).Where(r => r.Medico != null).OrderByDescending(r => r.Cantidad).ToList();
 
             return rankingPorMedico;
         }
+
+        // Cambio de contraseña del usuario administrativo //
+
+        // Verifica la contraseña
+        public bool VerificarContrasenia(string usuario, string contrasenia)
+        {
+            var admin = administrativos.FirstOrDefault(a => a.NombreUsuario.Equals(usuario, StringComparison.OrdinalIgnoreCase));
+            return admin != null && admin.Contrasenia == contrasenia;
+        }
+
+        // Cambiar contraseña
+        public void CambiarContrasenia(string usuario, string nuevaContrasenia)
+        {
+            var admin = administrativos.FirstOrDefault(a => a.NombreUsuario.Equals(usuario, StringComparison.OrdinalIgnoreCase));
+            if (admin == null) throw new ArgumentException("Administrativo no encontrado.");
+            admin.Contrasenia = nuevaContrasenia;
+        }
+
 
     }
 }

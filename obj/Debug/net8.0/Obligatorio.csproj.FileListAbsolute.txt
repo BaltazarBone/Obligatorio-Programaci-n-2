@@ -12,3 +12,4 @@ C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obliga
 C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.pdb
 C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.genruntimeconfig.cache
 C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\ref\Obligatorio.dll
+C:\Users\Baltazar\Desktop\CTC\Segundo Semestre\Programacion 2\Obligatorio\Obligatorio\obj\Debug\net8.0\Obligatorio.sourcelink.json
